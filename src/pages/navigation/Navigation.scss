@@ -1,0 +1,23 @@
+#Navigation{
+    background-color: gray;
+    display: block;
+    > .nav-list{
+        margin-top: 0;
+        display: flex;
+        gap: 1rem 2.5rem;
+        padding: 2rem;
+        justify-content: center;
+        > .item{
+            background-color: black;
+            list-style: none;
+            font-size: 2rem;
+            > &:hover{
+                transform: scale(1.5);
+            }
+            > a{
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }
+}
