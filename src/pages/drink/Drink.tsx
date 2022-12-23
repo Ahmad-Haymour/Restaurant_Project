@@ -2,11 +2,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 
-type Props = {
-        strDrink:string,
-        strDrinkThumb: string,
-        idDrink:string
-    }
+export type Props = {
+  strDrink : string,
+  strDrinkThumb: string,
+  idDrink: string,
+  rateDrink?: number
+  strCategory?: string
+}
 
 export default function Drink() {
 

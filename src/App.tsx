@@ -9,6 +9,7 @@ import Drink from './pages/drink/Drink';
 import MealsCategory from './pages/mealsCategory/MealsCategory';
 import Meal from './pages/meal/Meal';
 import { RatedDrinks } from './pages/ratedDrinks/RatedDrinks';
+import { RatedMeals } from './pages/ratedMeals/RatedMeals';
 
 export type DrinksCategory = {
   strCategory : string
@@ -43,7 +44,7 @@ export function App() {
   useEffect( ()=> {
     const url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list";
     axios.get(url).then((response) =>{
-      console.log('All categories => ',response.data);
+      console.log('All categories => ',response.data.drinks);
       setDrinks(response.data.drinks.map((drink: string) => drink))
     })
   }, [])
@@ -82,6 +83,7 @@ export function App() {
           }/>
           <Route path='/meals/:land/' element={<MealsCategory setLocalStorageMeals={setLocalStorageMeals}/>} />
           <Route path='/meals/:land/:meal_id' element={<Meal/>} />
+          <Route path='/rated-meals' element={<RatedMeals localStorageMeals={localStorageMeals}/>} />
 
         </Routes>
       </BrowserRouter>
