@@ -5,6 +5,7 @@ export type Props = {
     strDrinkThumb: string,
     idDrink: string,
     rateDrink?: number
+    strCategory?: string
   }
   
 export function RatedDrinks({localStorageDrinks}:Props[] | any) {
@@ -44,6 +45,8 @@ export function RatedDrinks({localStorageDrinks}:Props[] | any) {
                   <div>
                       <h1> {drink?.strDrink}</h1>
                       <h1> {drink?.rateDrink}</h1>
+                      <h1> {drink?.strCategory}</h1>
+
                   </div>
               </div>
             ))

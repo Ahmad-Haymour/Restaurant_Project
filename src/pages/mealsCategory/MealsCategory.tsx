@@ -13,7 +13,7 @@ export type Props = {
 
 export default function MealsCategory({setLocalStorageMeals}: Props[] | any) {
 
-    let {category} = useParams()
+    let {land} = useParams()
 
     let [meals, setMeals] = useState<Props[] | null>(null)
 
@@ -26,12 +26,12 @@ export default function MealsCategory({setLocalStorageMeals}: Props[] | any) {
 }, [mealID])
 
     useEffect(() => {
-        const url = "https://www.themealdb.com/api/json/v1/1/filter.php?a="+category;
+        const url = "https://www.themealdb.com/api/json/v1/1/filter.php?a="+land;
         axios.get(url).then((res)=>{
             console.log(res);
             setMeals(res.data.meals)
         })
-    }, [category])
+    }, [land])
 
 
   const handleRateMeal = (event: React.MouseEvent<HTMLElement>, meal: Props) =>{
@@ -50,12 +50,12 @@ export default function MealsCategory({setLocalStorageMeals}: Props[] | any) {
 
       if (selected_meal == null){
           meal.rateMeal = parseInt(target.innerHTML)
-          meal.strCategory = category
+          meal.strCategory = land
           ratedMealsCopy.push(meal)
           console.log('If Not Found RM (push): ', ratedMealsCopy);
       } else {
         meal.rateMeal = parseInt(target.innerHTML)
-        meal.strCategory = category
+        meal.strCategory = land
         selected_meal.rateMeal = meal.rateMeal
           console.log('If Found RM (rate): ',selected_meal);
       }
@@ -71,11 +71,11 @@ export default function MealsCategory({setLocalStorageMeals}: Props[] | any) {
 
   return (
     <div id='MealsCategory'>
-        {<h1>{category}</h1>}
+        {<h1>{land}</h1>}
         <div style={{display: 'flex', flexWrap: 'wrap'}} >
                 { meals?.map((meal)=>(
                         <div style={{width:'200px'}} key={meal.idMeal}>
-                            <Link to={'/meals/'+category+'/'+meal.idMeal}> 
+                            <Link to={'/meals/'+land+'/'+meal.idMeal}> 
                                 <h2>{meal.strMeal}</h2>
                                 <img src={meal.strMealThumb} alt='Meal Thumb' width='100'/>
                             </Link>

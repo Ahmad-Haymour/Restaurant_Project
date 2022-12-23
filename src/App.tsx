@@ -59,7 +59,7 @@ export function App() {
   return (
     <div id="App">
       <BrowserRouter>
-        <Navigation drinks={drinks} />
+        <Navigation />
         <Routes>
           <Route path='/' element={<h1>Home</h1>} />
           <Route path='/drinks' element={ 
@@ -69,9 +69,9 @@ export function App() {
                 ))}
             </ul>
           } />
-
           <Route path='/categories/:category' element={<Categories setLocalStorageDrinks={setLocalStorageDrinks} />} />
           <Route path='/categories/:category/:drink_id' element={<Drink/>} />
+          <Route path='/rated-drinks' element={<RatedDrinks localStorageDrinks={localStorageDrinks}/>} />
 
           <Route path='/meals' element={
             <ul>
@@ -80,13 +80,9 @@ export function App() {
               ))}
             </ul>
           }/>
+          <Route path='/meals/:land/' element={<MealsCategory setLocalStorageMeals={setLocalStorageMeals}/>} />
+          <Route path='/meals/:land/:meal_id' element={<Meal/>} />
 
-          <Route path='/meals/:category/' element={<MealsCategory setLocalStorageMeals={setLocalStorageMeals}/>} />
-          <Route path='/meals/:category/:meal_id' element={<Meal/>} />
-
-          <Route path='/contact' element={<h1>Contact</h1>} />
-
-          <Route path='/rated-drinks' element={<RatedDrinks localStorageDrinks={localStorageDrinks}/>} />
         </Routes>
       </BrowserRouter>
     </div>

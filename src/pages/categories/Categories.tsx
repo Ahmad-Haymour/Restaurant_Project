@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
+import SingleDrink from '../../components/singleDrink/SingleDrink';
+import SingleMeal from '../../components/singleMeal/SingleMeal';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 export type Props = {
@@ -67,29 +69,15 @@ export default function Categories({setLocalStorageDrinks}:Props[] | any) {
     })
   }
 
-
   return (
     <div id='Categories'>1  
       <h1>{category}</h1>
       <div style={{display: 'flex', flexWrap: 'wrap'}} >
         {
           drinks?.map((drink)=>(
-            <div style={{width:'200px', border:'2px solid black', margin:'0 auto'}} key={drink.idDrink}>
-              <Link to={'/categories/'+category+'/'+drink.idDrink}> 
-                <h2>{drink.strDrink}</h2>
-                <img src={drink.strDrinkThumb} alt='Drink Thumb' width='100' />
-              </Link>
-              <div className='vote-wrapper' style={{display:'flex', gap: '.5rem', justifyContent: 'center'}}>
-                {
-                  Array.from(Array(10)).map(( _, i) => <button key={i} style={{backgroundColor:'lightgray', padding:'.1rem'}} 
-
-                  onClick={(e)=> handleRateDrink(e, drink)}
-                  >{i + 1}</button> )
-                }
-              </div>
-            </div>
+            <SingleDrink drink={drink} handleRateDrink={handleRateDrink} />
           ))
-          }
+        }
       </div>
     </div>
   )
