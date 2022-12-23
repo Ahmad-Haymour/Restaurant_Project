@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import "./SingleDrink.scss"
 
@@ -27,17 +26,14 @@ export default function SingleDrink({drink, handleRateDrink, localStorageDrinks}
             </Link>
             <div className='vote-wrapper' style={{display:'flex', gap: '.5rem', justifyContent: 'center'}}>
                 {
-                    Array.from(Array(10)).map(( _, i) => (
-                    
-                        <div className={(foundDrink?.rateDrink && foundDrink.rateDrink == i+1 ) ? 'rated-active':'none-active'} 
-                            
-                             key={i+1} style={{backgroundColor:'lightgray', padding:'.1rem'}} 
-
+                    Array.from(Array(10)).map(( _, i) => 
+                        <div className={(foundDrink?.rateDrink && foundDrink.rateDrink === i+1 ) ? 'rated-active':'none-active'} 
+                             key={i+1} style={{backgroundColor:'lightgray', padding:'.1rem', cursor:'pointer'}} 
                              onClick={(e)=> handleRateDrink(e, drink)}
                         >
                             {i + 1}
                         </div> 
-                    ))
+                    )
                 }
             </div>
     </div>

@@ -81,7 +81,7 @@ export function App() {
               ))}
             </ul>
           }/>
-          <Route path='/meals/:land/' element={<MealsCategory setLocalStorageMeals={setLocalStorageMeals}/>} />
+          <Route path='/meals/:land/' element={<MealsCategory localStorageMeals={localStorageMeals} setLocalStorageMeals={setLocalStorageMeals}/>} />
           <Route path='/meals/:land/:meal_id' element={<Meal/>} />
           <Route path='/rated-meals' element={<RatedMeals localStorageMeals={localStorageMeals}/>} />
 

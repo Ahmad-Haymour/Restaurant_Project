@@ -1,8 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import SingleDrink from '../../components/singleDrink/SingleDrink';
-import SingleMeal from '../../components/singleMeal/SingleMeal';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 export type Props = {

@@ -1,4 +1,4 @@
-#SingleDrink {
+#SingleMeal {
 
     > .vote-wrapper{
 
@@ -6,7 +6,7 @@
             color: black;
         }
         > .rated-active{
-            color: red;
+            color: blue;
             background-color: white !important;
             transform: scale(1.5);
         }

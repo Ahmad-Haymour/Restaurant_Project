@@ -12,7 +12,7 @@ export type Props = {
     strCategory?: string
 }
 
-export default function MealsCategory({setLocalStorageMeals}: Props[] | any) {
+export default function MealsCategory({localStorageMeals, setLocalStorageMeals}: Props[] | any) {
 
     let {land} = useParams()
 
@@ -75,7 +75,7 @@ export default function MealsCategory({setLocalStorageMeals}: Props[] | any) {
         {<h1>{land}</h1>}
         <div style={{display: 'flex', flexWrap: 'wrap'}} >
                 { meals?.map((meal)=>(
-                        <SingleMeal key={meal.idMeal} meal={meal} handleRateMeal={handleRateMeal} />
+                        <SingleMeal key={meal.idMeal} meal={meal} handleRateMeal={handleRateMeal} localStorageMeals={localStorageMeals} />
                     ))
                 }   
         </div>
