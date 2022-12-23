@@ -19,7 +19,7 @@ export default function Categories({setLocalStorageDrinks}:Props[] | any) {
 
   const [ratingStorage, setRatingStorage] = useLocalStorage<Props[]>('rated-drinks', [])
 
-  useEffect( ()=>{
+  useEffect( () => {
     const url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c="+category;
 
     axios.get(url).then((response)=>{
@@ -69,17 +69,11 @@ export default function Categories({setLocalStorageDrinks}:Props[] | any) {
 
 
   return (
-    <div id='Categories'>
-      <h2>Drinks Categories</h2>
-  
-      {<h1>{category}</h1>}
-      {<div>The Rated Drink ID ={'> '} {<h1>{drinkID}</h1> }</div>}
-
+    <div id='Categories'>1  
+      <h1>{category}</h1>
       <div style={{display: 'flex', flexWrap: 'wrap'}} >
-
         {
           drinks?.map((drink)=>(
-
             <div style={{width:'200px', border:'2px solid black', margin:'0 auto'}} key={drink.idDrink}>
               <Link to={'/categories/'+category+'/'+drink.idDrink}> 
                 <h2>{drink.strDrink}</h2>

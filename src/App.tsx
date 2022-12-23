@@ -6,7 +6,7 @@ import axios from 'axios'
 import Navigation from './pages/navigation/Navigation';
 import Categories from './pages/categories/Categories';
 import Drink from './pages/drink/Drink';
-import Meals from './pages/mealsCategory/MealsCategory';
+import MealsCategory from './pages/mealsCategory/MealsCategory';
 import Meal from './pages/meal/Meal';
 import { RatedDrinks } from './pages/ratedDrinks/RatedDrinks';
 
@@ -37,6 +37,8 @@ export function App() {
   let [meals, setMeals] = useState<MealsArea[] | null >(null)
 
   const [localStorageDrinks, setLocalStorageDrinks] = useState<Props[]>([])
+  const [localStorageMeals, setLocalStorageMeals] = useState<Props[]>([])
+
 
   useEffect( ()=> {
     const url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list";
@@ -79,7 +81,7 @@ export function App() {
             </ul>
           }/>
 
-          <Route path='/meals/:category/' element={<Meals/>} />
+          <Route path='/meals/:category/' element={<MealsCategory setLocalStorageMeals={setLocalStorageMeals}/>} />
           <Route path='/meals/:category/:meal_id' element={<Meal/>} />
 
           <Route path='/contact' element={<h1>Contact</h1>} />
