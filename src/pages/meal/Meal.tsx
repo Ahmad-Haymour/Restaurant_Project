@@ -24,7 +24,6 @@ export default function Meal() {
             setSingleMeal(res.data.meals.filter((meal:Props)=>meal.idMeal === meal_id)[0])
             console.log('Filter meals => ', res.data.meals.filter((meal:Props)=>meal.idMeal === meal_id)[0]);
         })
-
     }, [land, meal_id])
 
   return (

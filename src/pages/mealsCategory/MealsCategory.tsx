@@ -75,7 +75,7 @@ export default function MealsCategory({setLocalStorageMeals}: Props[] | any) {
         {<h1>{land}</h1>}
         <div style={{display: 'flex', flexWrap: 'wrap'}} >
                 { meals?.map((meal)=>(
-                        <SingleMeal meal={meal} handleRateMeal={handleRateMeal} />
+                        <SingleMeal key={meal.idMeal} meal={meal} handleRateMeal={handleRateMeal} />
                     ))
                 }   
         </div>

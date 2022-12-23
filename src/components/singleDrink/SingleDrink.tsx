@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import "./SingleDrink.scss"
 
@@ -10,9 +10,11 @@ export type Props = {
     strCategory?: string
   }
 
-export default function SingleDrink({drink, handleRateDrink}: Props[] | any) {
+export default function SingleDrink({drink, handleRateDrink, localStorageDrinks}: Props[] | any) {
 
     let {category} = useParams<string>()
+
+    let foundDrink = localStorageDrinks.find((ratedDrink:Props) => ratedDrink.idDrink === drink.idDrink)
 
   return (
     <div id='SingleDrink' 
@@ -27,14 +29,16 @@ export default function SingleDrink({drink, handleRateDrink}: Props[] | any) {
                 {
                     Array.from(Array(10)).map(( _, i) => (
                     
-                        <button className={`rate-btn ${drink.rateDrink && 'rated-active'}`} key={i} style={{backgroundColor:'lightgray', padding:'.1rem'}} 
-                        onClick={(e: React.MouseEvent<HTMLElement>)=> handleRateDrink(e, drink)}
+                        <div className={(foundDrink?.rateDrink && foundDrink.rateDrink == i+1 ) ? 'rated-active':'none-active'} 
+                            
+                             key={i+1} style={{backgroundColor:'lightgray', padding:'.1rem'}} 
+
+                             onClick={(e)=> handleRateDrink(e, drink)}
                         >
                             {i + 1}
-                        </button> 
+                        </div> 
                     ))
                 }
-                {/* event: React.MouseEvent<HTMLElement>, drink: Props */}
             </div>
     </div>
   )

@@ -2,11 +2,12 @@
 
     > .vote-wrapper{
 
-        // > .rate-btn{
-        //     color: green;
-        //     > &.rated-active{
-        //         color: red;
-        //     }
-        // }
+        > .none-active{
+            color: black;
+        }
+        > .rated-active{
+            color: blue;
+            transform: scale(1.5);
+        }
     }
 }

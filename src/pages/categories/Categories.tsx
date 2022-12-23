@@ -13,7 +13,7 @@ export type Props = {
   strCategory?: string
 }
 
-export default function Categories({setLocalStorageDrinks}:Props[] | any) {
+export default function Categories({localStorageDrinks, setLocalStorageDrinks}:Props[] | any) {
   
   let {category} = useParams<string>()
   let [drinks, setDrinks] = useState<Props[] | null>(null)
@@ -70,12 +70,12 @@ export default function Categories({setLocalStorageDrinks}:Props[] | any) {
   }
 
   return (
-    <div id='Categories'>1  
+    <div id='Categories'> 
       <h1>{category}</h1>
       <div style={{display: 'flex', flexWrap: 'wrap'}} >
         {
           drinks?.map((drink)=>(
-            <SingleDrink drink={drink} handleRateDrink={handleRateDrink} />
+            <SingleDrink key={drink.idDrink} drink={drink} handleRateDrink={handleRateDrink} localStorageDrinks={localStorageDrinks} />
           ))
         }
       </div>

@@ -70,7 +70,7 @@ export function App() {
                 ))}
             </ul>
           } />
-          <Route path='/categories/:category' element={<Categories setLocalStorageDrinks={setLocalStorageDrinks} />} />
+          <Route path='/categories/:category' element={<Categories localStorageDrinks={localStorageDrinks} setLocalStorageDrinks={setLocalStorageDrinks} />} />
           <Route path='/categories/:category/:drink_id' element={<Drink/>} />
           <Route path='/rated-drinks' element={<RatedDrinks localStorageDrinks={localStorageDrinks}/>} />
 
