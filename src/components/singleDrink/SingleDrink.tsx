@@ -7,7 +7,7 @@ export type Props = {
     idDrink: string,
     rateDrink?: number
     strCategory?: string
-  }
+}
 
 export default function SingleDrink({drink, handleRateDrink, localStorageDrinks}: Props[] | any) {
 
@@ -17,22 +17,21 @@ export default function SingleDrink({drink, handleRateDrink, localStorageDrinks}
 
   return (
     <div id='SingleDrink' 
-         style={{width:'200px', border:'2px solid black', margin:'0 auto'}} 
          key={drink.idDrink}
     >
             <Link to={'/categories/'+category+'/'+drink.idDrink}> 
-                <h2>{drink.strDrink}</h2>
-                <img src={drink.strDrinkThumb} alt='Drink Thumb' width='100'/>
+                <h2>{drink.strDrink.length > 20 ?drink.strDrink.slice(0,20)+'...' :drink.strDrink}</h2>
+                <img src={drink.strDrinkThumb} alt='Drink Thumb'/>
             </Link>
-            <div className='vote-wrapper' style={{display:'flex', gap: '.5rem', justifyContent: 'center'}}>
+            <div className='vote-wrapper'>
                 {
                     Array.from(Array(10)).map(( _, i) => 
-                        <div className={(foundDrink?.rateDrink && foundDrink.rateDrink === i+1 ) ? 'rated-active':'none-active'} 
-                             key={i+1} style={{backgroundColor:'lightgray', padding:'.1rem', cursor:'pointer'}} 
+                        <button className={(foundDrink?.rateDrink && foundDrink.rateDrink === i+1 ) ? 'rate active':'rate'} 
+                             key={i+1} 
                              onClick={(e)=> handleRateDrink(e, drink)}
                         >
                             {i + 1}
-                        </div> 
+                        </button> 
                     )
                 }
             </div>

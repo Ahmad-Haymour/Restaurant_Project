@@ -42,8 +42,8 @@ export function RatedDrinks({localStorageDrinks}:Props[] | any) {
   const sortByRAlphabet = () =>{
     let newSorting = [...ratedDrinks]
     newSorting.sort((a:Props|any,b:Props|any)=>{
-      if(a.strDrink > b.strDrink) return -1
-      else if(a.strDrink < b.strDrink) return 1
+      if(a.strDrink < b.strDrink) return -1
+      else if(a.strDrink > b.strDrink) return 1
       else return 0
     })    
     setSortedDrinks(newSorting)
@@ -60,14 +60,14 @@ export function RatedDrinks({localStorageDrinks}:Props[] | any) {
         <div>
           {
             sortedDrinks?.map((drink:Props)=> (
-              <div key={drink?.idDrink}>
-                  <img src={drink?.strDrinkThumb} alt="Drink Thumb" style={{width:"75px", height:"75px"}} />
-                  <div>
-                      <h1> {drink?.strDrink}</h1>
-                      <h1> {drink?.rateDrink}</h1>
-                      <h1> {drink?.strCategory}</h1>
+              <div key={drink?.idDrink} style={{border:'2px solid', width:'300px', display:'flex'}}>
+                  <img src={drink?.strDrinkThumb} alt="Drink Thumb" style={{width:"100px", height:"100px"}} />
+                  <ul>
+                      <li>Drink:&nbsp; {drink?.strDrink}</li>
+                      <li>Category: &nbsp;{drink?.strCategory}</li>
+                      <li>Rate: &nbsp;{drink?.rateDrink}</li>
 
-                  </div>
+                  </ul>
               </div>
             ))
           }

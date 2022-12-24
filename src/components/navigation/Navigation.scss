@@ -1,6 +1,12 @@
+$color-blue: #2C74B3;
+$color-dark-blue: #0A2647;
+
 #Navigation{
-    background-color: black;
+    background-color: $color-dark-blue ;
     display: block;
+    position: sticky;
+    top: 0;
+    z-index: 3;
     > .nav-list{
         margin-top: 0;
         display: flex;
@@ -8,7 +14,6 @@
         padding: 2rem;
         justify-content: center;
         > .item{
-            background-color: black;
             list-style: none;
             font-size: 2rem;
             > &:hover{

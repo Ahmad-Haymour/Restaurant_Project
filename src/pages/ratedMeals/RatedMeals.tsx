@@ -6,6 +6,8 @@ export type Props = {
     idMeal: string
     rateMeal?: number
     strCategory?: string
+    alphabetically?: string
+
 }
   
 export function RatedMeals({localStorageMeals}:Props[] | any) {

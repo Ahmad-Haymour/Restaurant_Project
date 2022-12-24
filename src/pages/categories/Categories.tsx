@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import SingleDrink from '../../components/singleDrink/SingleDrink';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
+import './Categories.scss'
 
 export type Props = {
   strDrink : string,
@@ -29,10 +30,6 @@ export default function Categories({localStorageDrinks, setLocalStorageDrinks}:P
     })
   }, [category])
 
-  useEffect( ()=>{
-      console.log('Rated Drink ID => ', drinkID);
-  }, [drinkID])
-
   const handleRateDrink = (event: React.MouseEvent<HTMLElement>, drink: Props) =>{
 
     event.preventDefault()
@@ -42,10 +39,7 @@ export default function Categories({localStorageDrinks, setLocalStorageDrinks}:P
 
     setRatingStorage( (currentItems) =>{                    
       let ratedDrinksCopy = [...currentItems]
-
       let selected_drink = ratingStorage.find((drinkObject: Props)=> drinkObject?.idDrink === drink?.idDrink)
-
-      console.log('Find Selected Drink in Storage: ',selected_drink);
 
       if (selected_drink == null){
           drink.rateDrink = parseInt(target.innerHTML)
@@ -58,12 +52,7 @@ export default function Categories({localStorageDrinks, setLocalStorageDrinks}:P
           selected_drink.rateDrink = drink.rateDrink
           console.log('If Found RD (rate): ',selected_drink);
       }
-
-      console.log('Storage Before: ', currentItems);
-      console.log('Storage After: ', ratedDrinksCopy);
-
       setLocalStorageDrinks(ratedDrinksCopy)
-      
       return ratedDrinksCopy
     })
   }
@@ -71,7 +60,7 @@ export default function Categories({localStorageDrinks, setLocalStorageDrinks}:P
   return (
     <div id='Categories'> 
       <h1>{category}</h1>
-      <div style={{display: 'flex', flexWrap: 'wrap'}} >
+      <div className='container' >
         {
           drinks?.map((drink)=>(
             <SingleDrink key={drink.idDrink} drink={drink} handleRateDrink={handleRateDrink} localStorageDrinks={localStorageDrinks} />

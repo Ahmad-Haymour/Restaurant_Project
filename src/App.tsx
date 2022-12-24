@@ -3,7 +3,7 @@ import './App.scss';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import axios from 'axios'
 
-import Navigation from './pages/navigation/Navigation';
+import Navigation from './components/navigation/Navigation';
 import Categories from './pages/categories/Categories';
 import Drink from './pages/drink/Drink';
 import MealsCategory from './pages/mealsCategory/MealsCategory';
