@@ -12,6 +12,8 @@ export function RatedMeals({localStorageMeals}:Props[] | any) {
 
   const [ratedMeals, setRatedMeals] = useState<Props[] >([])
 
+  const [sortedMeals, setSortedMeals] = useState<Props[]>([])
+
   useEffect(() => {
     console.log('Effect Fetching Local Storage');
     let x = localStorage.getItem('rated-meals')
@@ -22,12 +24,29 @@ export function RatedMeals({localStorageMeals}:Props[] | any) {
     } else return
     
   }, [localStorageMeals])
+
+  useEffect(()=>{
+    setSortedMeals(ratedMeals)
+  }, [ratedMeals])
+
+  const sortByRate = () =>{
+    let newSorting = [...ratedMeals]
+    newSorting.sort((a:Props|any,b:Props|any)=>{
+      if(a.rateMeal > b.rateMeal) return -1
+      else if(a.rateMeal < b.rateMeal) return 1
+      else return 0
+    })    
+    setSortedMeals(newSorting)
+  }
     
   return (
     <div>
+        <button onClick={sortByRate} className="sort-by-rating">
+          Sortierung nach Rating
+        </button>
         <div>
           {
-            ratedMeals?.map((meal:Props)=> (
+            sortedMeals?.map((meal:Props)=> (
               <div key={meal?.idMeal}>
                   <img src={meal?.strMealThumb} alt="Drink Thumb" style={{width:"75px", height:"75px"}} />
                   <div>

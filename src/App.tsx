@@ -64,7 +64,7 @@ export function App() {
         <Routes>
           <Route path='/' element={<h1>Home</h1>} />
           <Route path='/drinks' element={ 
-            <ul>
+            <ul className='categories-list'>
                 {drinks?.map((drink, ind) => (
                 <li key={ind}><Link to={'/categories/'+drink.strCategory}>{drink?.strCategory}</Link></li>
                 ))}
@@ -75,7 +75,7 @@ export function App() {
           <Route path='/rated-drinks' element={<RatedDrinks localStorageDrinks={localStorageDrinks}/>} />
 
           <Route path='/meals' element={
-            <ul>
+            <ul className='categories-list'>
               { meals?.map((meal, ind)=>(
                 <li key={ind}><Link to={meal.strArea}>{meal.strArea}</Link></li>
               ))}

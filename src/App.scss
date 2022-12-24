@@ -3,12 +3,26 @@ html{
     padding: 0;
     margin: 0;
   
-  }
+}
   
-  body{
+body{
     color: black;
     padding: 0;
     margin: 0;
     font-family: 'Koulen', cursive;
-  }
+}
   
+#App {
+
+  > ul.categories-list {
+
+    > li{
+      list-style: none;
+
+      > a{
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}
