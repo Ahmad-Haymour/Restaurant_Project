@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import SingleMeal from '../../components/singleMeal/SingleMeal';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
-import '../categories/Categories.scss'
 
 export type Props = {
     strMeal : string,

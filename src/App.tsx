@@ -60,32 +60,33 @@ export function App() {
   return (
     <div id="App">
       <BrowserRouter>
-        <Navigation />
-        <Routes>
-          <Route path='/' element={<h1>Home</h1>} />
-          <Route path='/drinks' element={ 
-            <ul className='categories-list'>
-                {drinks?.map((drink, ind) => (
-                <li key={ind}><Link to={'/categories/'+drink.strCategory}>{drink?.strCategory}</Link></li>
+        <Navigation >
+          <Routes>
+            <Route path='/' element={<div className='Bon-Appetit' />} />
+            <Route path='/drinks' element={ 
+              <ul className='categories-list'>
+                  {drinks?.map((drink, ind) => (
+                  <li key={ind}><Link to={'/categories/'+drink.strCategory}>{drink?.strCategory}</Link></li>
+                  ))}
+              </ul>
+            } />
+            <Route path='/categories/:category' element={<Categories localStorageDrinks={localStorageDrinks} setLocalStorageDrinks={setLocalStorageDrinks} />} />
+            <Route path='/categories/:category/:drink_id' element={<Drink/>} />
+            <Route path='/rated-drinks' element={<RatedDrinks localStorageDrinks={localStorageDrinks}/>} />
+
+            <Route path='/meals' element={
+              <ul className='categories-list'>
+                { meals?.map((meal, ind)=>(
+                  <li key={ind}><Link to={meal.strArea}>{meal.strArea}</Link></li>
                 ))}
-            </ul>
-          } />
-          <Route path='/categories/:category' element={<Categories localStorageDrinks={localStorageDrinks} setLocalStorageDrinks={setLocalStorageDrinks} />} />
-          <Route path='/categories/:category/:drink_id' element={<Drink/>} />
-          <Route path='/rated-drinks' element={<RatedDrinks localStorageDrinks={localStorageDrinks}/>} />
+              </ul>
+            }/>
+            <Route path='/meals/:land/' element={<MealsCategory localStorageMeals={localStorageMeals} setLocalStorageMeals={setLocalStorageMeals}/>} />
+            <Route path='/meals/:land/:meal_id' element={<Meal/>} />
+            <Route path='/rated-meals' element={<RatedMeals localStorageMeals={localStorageMeals}/>} />
 
-          <Route path='/meals' element={
-            <ul className='categories-list'>
-              { meals?.map((meal, ind)=>(
-                <li key={ind}><Link to={meal.strArea}>{meal.strArea}</Link></li>
-              ))}
-            </ul>
-          }/>
-          <Route path='/meals/:land/' element={<MealsCategory localStorageMeals={localStorageMeals} setLocalStorageMeals={setLocalStorageMeals}/>} />
-          <Route path='/meals/:land/:meal_id' element={<Meal/>} />
-          <Route path='/rated-meals' element={<RatedMeals localStorageMeals={localStorageMeals}/>} />
-
-        </Routes>
+          </Routes>
+        </Navigation >
       </BrowserRouter>
     </div>
   );
