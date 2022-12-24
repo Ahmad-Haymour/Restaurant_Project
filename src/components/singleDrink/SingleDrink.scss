@@ -63,6 +63,9 @@ $color-dark-blue: #0A2647;
             transform: scale(2);
             z-index: 2;
             background-color: transparent;
+            &:hover{
+                color: white;
+            }
         }
     }
 }

@@ -17,7 +17,6 @@ export default function Categories({localStorageDrinks, setLocalStorageDrinks}:P
   
   let {category} = useParams<string>()
   let [drinks, setDrinks] = useState<Props[] | null>(null)
-  const [drinkID, setDrinkID] = useState<number | null>(null)
 
   const [ratingStorage, setRatingStorage] = useLocalStorage<Props[]>('rated-drinks', [])
 
@@ -34,7 +33,6 @@ export default function Categories({localStorageDrinks, setLocalStorageDrinks}:P
 
     event.preventDefault()
     const target = event.target as HTMLElement
-    setDrinkID(parseInt(target.innerHTML));
     console.log('Drink Object: ', drink);
 
     setRatingStorage( (currentItems) =>{                    
@@ -45,12 +43,10 @@ export default function Categories({localStorageDrinks, setLocalStorageDrinks}:P
           drink.rateDrink = parseInt(target.innerHTML)
           drink.strCategory = category
           ratedDrinksCopy.push(drink)
-          console.log('If Not Found RD (push): ', ratedDrinksCopy);
       } else {
           drink.rateDrink = parseInt(target.innerHTML)
           drink.strCategory = category
           selected_drink.rateDrink = drink.rateDrink
-          console.log('If Found RD (rate): ',selected_drink);
       }
       setLocalStorageDrinks(ratedDrinksCopy)
       return ratedDrinksCopy
@@ -58,7 +54,7 @@ export default function Categories({localStorageDrinks, setLocalStorageDrinks}:P
   }
 
   return (
-    <div id='Categories'> 
+    <div className='Categories'> 
       <h1>{category}</h1>
       <div className='container' >
         {

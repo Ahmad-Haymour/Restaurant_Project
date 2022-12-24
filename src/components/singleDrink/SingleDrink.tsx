@@ -24,16 +24,14 @@ export default function SingleDrink({drink, handleRateDrink, localStorageDrinks}
                 <img src={drink.strDrinkThumb} alt='Drink Thumb'/>
             </Link>
             <div className='vote-wrapper'>
-                {
-                    Array.from(Array(10)).map(( _, i) => 
+                {Array.from(Array(10)).map(( _, i) => 
                         <button className={(foundDrink?.rateDrink && foundDrink.rateDrink === i+1 ) ? 'rate active':'rate'} 
                              key={i+1} 
                              onClick={(e)=> handleRateDrink(e, drink)}
                         >
                             {i + 1}
                         </button> 
-                    )
-                }
+                )}
             </div>
     </div>
   )

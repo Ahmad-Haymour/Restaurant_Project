@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import SingleMeal from '../../components/singleMeal/SingleMeal';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
+import '../categories/Categories.scss'
 
 export type Props = {
     strMeal : string,
@@ -15,10 +16,7 @@ export type Props = {
 export default function MealsCategory({localStorageMeals, setLocalStorageMeals}: Props[] | any) {
 
     let {land} = useParams()
-
     let [meals, setMeals] = useState<Props[] | null>(null)
-
-    const [mealID, setMealID] = useState<number | null>(null)
 
     const [ratingStorage, setRatingStorage] = useLocalStorage<Props[]>('rated-meals', [])
 
@@ -34,7 +32,6 @@ export default function MealsCategory({localStorageMeals, setLocalStorageMeals}:
 
     event.preventDefault()
     const target = event.target as HTMLElement
-    setMealID(parseInt(target.innerHTML));
     console.log('Meal Object: ', meal);
 
     setRatingStorage( (currentItems) =>{                    
@@ -45,12 +42,10 @@ export default function MealsCategory({localStorageMeals, setLocalStorageMeals}:
           meal.rateMeal = parseInt(target.innerHTML)
           meal.strCategory = land
           ratedMealsCopy.push(meal)
-          console.log('If Not Found RM (push): ', ratedMealsCopy);
       } else {
-        meal.rateMeal = parseInt(target.innerHTML)
-        meal.strCategory = land
-        selected_meal.rateMeal = meal.rateMeal
-          console.log('If Found RM (rate): ',selected_meal);
+          meal.rateMeal = parseInt(target.innerHTML)
+          meal.strCategory = land
+          selected_meal.rateMeal = meal.rateMeal
       }
       setLocalStorageMeals(ratedMealsCopy)
       return ratedMealsCopy
@@ -58,9 +53,9 @@ export default function MealsCategory({localStorageMeals, setLocalStorageMeals}:
   }
 
   return (
-    <div id='MealsCategory'>
+    <div className='Categories'>
         {<h1>{land}</h1>}
-        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent:'center', gap:'20px', backgroundColor:'black'}} >
+        <div className='container' >
                 { meals?.map((meal)=>(
                         <SingleMeal key={meal.idMeal} meal={meal} handleRateMeal={handleRateMeal} localStorageMeals={localStorageMeals} />
                     ))
