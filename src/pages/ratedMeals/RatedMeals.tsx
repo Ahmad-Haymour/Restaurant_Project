@@ -11,7 +11,6 @@ export type Props = {
 export function RatedMeals({localStorageMeals}:Props[] | any) {
 
   const [ratedMeals, setRatedMeals] = useState<Props[] >([])
-
   const [sortedMeals, setSortedMeals] = useState<Props[]>([])
 
   useEffect(() => {
@@ -38,11 +37,24 @@ export function RatedMeals({localStorageMeals}:Props[] | any) {
     })    
     setSortedMeals(newSorting)
   }
-    
+  
+  const sortByRAlphabet = () =>{
+    let newSorting = [...ratedMeals]
+    newSorting.sort((a:Props|any,b:Props|any)=>{
+      if(a.strMeal > b.strMeal) return -1
+      else if(a.strMeal < b.strMeal) return 1
+      else return 0
+    })    
+    setSortedMeals(newSorting)
+  }
+
   return (
     <div>
         <button onClick={sortByRate} className="sort-by-rating">
-          Sortierung nach Rating
+          Sort By Rating
+        </button>
+        <button onClick={sortByRAlphabet} className="sort-by-rating">
+          Sort By Alphabet
         </button>
         <div>
           {
