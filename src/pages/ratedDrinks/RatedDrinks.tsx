@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import './RatedDrinks.scss'
 
 export type Props = {
     strDrink : string,
@@ -12,17 +13,16 @@ export function RatedDrinks({localStorageDrinks}:Props[] | any) {
 
   const [ratedDrinks, setRatedDrinks] = useState<Props[] >([])
   const [ sortedDrinks, setSortedDrinks] = useState<Props[]>([])
+  const [sortedAlpha, setSortedAlpha] = useState<boolean | null>(null) 
+  const [sortedRate, setSortedRate] = useState<boolean | null>(null) 
 
   useEffect(() => {
-    console.log('Effect Fetching Local Storage');
     let x = localStorage.getItem('rated-drinks')
     if (x != null){
       const LocalStorageItems = JSON.parse(x)
       console.log(LocalStorageItems);
       setRatedDrinks(LocalStorageItems)
-
     } else return
-    
   }, [localStorageDrinks])
 
   useEffect(()=>{
@@ -37,6 +37,8 @@ export function RatedDrinks({localStorageDrinks}:Props[] | any) {
       else return 0
     })    
     setSortedDrinks(newSorting)
+    setSortedAlpha(false)
+    setSortedRate(true)
   }
 
   const sortByRAlphabet = () =>{
@@ -47,31 +49,36 @@ export function RatedDrinks({localStorageDrinks}:Props[] | any) {
       else return 0
     })    
     setSortedDrinks(newSorting)
+    setSortedRate(false)
+    setSortedAlpha(true)
   }
     
   return (
-    <div>
-      <button onClick={sortByRate} className="sort-by-rating">
-          Sort By Rating
-        </button>
-        <button onClick={sortByRAlphabet} className="sort-by-rating">
-          Sort By Alphabet
-        </button>
-        <div>
+    <div id="RatedDrinks">
+      <div className="sort-container">
+          <div onClick={sortByRate} className="sort-by-rating">
+            Sort By Rating
+          </div>
+          <h2>{
+            sortedAlpha && 'Sorted By Alphabet'}{ sortedRate && 'Sorted By Rating'}</h2>
+          <div onClick={sortByRAlphabet} className="sort-by-rating">
+            Sort By Alphabet
+          </div>
+      </div>
+      <div className="rated-items">
           {
             sortedDrinks?.map((drink:Props)=> (
-              <div key={drink?.idDrink} style={{border:'2px solid', width:'300px', display:'flex'}}>
-                  <img src={drink?.strDrinkThumb} alt="Drink Thumb" style={{width:"100px", height:"100px"}} />
+              <div className="item" key={drink?.idDrink}>
+                  <img src={drink?.strDrinkThumb} alt="Drink Thumb" />
                   <ul>
-                      <li>Drink:&nbsp; {drink?.strDrink}</li>
-                      <li>Category: &nbsp;{drink?.strCategory}</li>
-                      <li>Rate: &nbsp;{drink?.rateDrink}</li>
-
+                      <li>Drink:&nbsp;<span style={{color:'whitesmoke'}}> {drink?.strDrink}</span></li>
+                      <li>Category:&nbsp;<span style={{color:'whitesmoke'}}> {drink?.strCategory}</span></li>
+                      <li>Rate: &nbsp;<span style={{color:'orangered'}}>{drink?.rateDrink}</span></li>
                   </ul>
               </div>
             ))
           }
-        </div>
+      </div>
     </div>
   )
 }

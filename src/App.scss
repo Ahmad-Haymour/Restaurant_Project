@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap.css');
 
-$color-beige: #cbc0c0;
-$color-dark-grey: #3b3b40;
-
 $color-blue: #2C74B3;
 $color-dark-blue: #0A2647;
 
@@ -19,11 +16,8 @@ body, * {
 }
   
 #App {
-
   > .Navigation{
-
     > .children{
-
       > .Bon-Appetit{
         background-image: url('https://img.freepik.com/free-vector/hand-drawn-bon-appetit-lettering_23-2149346089.jpg?w=2000');
         background-position:center;
@@ -33,7 +27,6 @@ body, * {
         width: 100%;
         height: 100vh;
         object-fit: contain;
-        // style={{width:'100%', minHeight:'120vh', objectFit:'cover'}}
       }
 
       > ul.categories-list {
