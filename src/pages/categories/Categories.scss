@@ -1,12 +1,15 @@
 $color-blue: #2C74B3;
 $color-dark-blue: #0A2647;
 
+$color-beige: #cbc0c0;
+$color-dark-grey: #3b3b40;
+
 .Categories {
-    background-color: $color-blue;
+    background-color: $color-dark-blue;
     > h1 {
         text-align: center;
-        padding: 2rem 0 ;
-        color: $color-dark-blue;
+        padding: 3rem 0 ;
+        color: $color-blue;
     }
     >.container {
         display: flex;

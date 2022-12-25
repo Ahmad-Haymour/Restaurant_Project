@@ -37,12 +37,16 @@ body, * {
         padding: 50px 0;
         background-color: $color-blue;
         min-height: 60vh;
-        // background-color: green;
+        @media screen and (max-width: 1200px ){
+          grid-template-columns: repeat(3, 1fr) ;
+        }
+        @media screen and (max-width: 900px ){
+          grid-template-columns: repeat(2, 1fr) ;
+        }
         > li{
           padding: 1rem 1rem ;
           list-style: none;
           text-align: center;
-          // background-color: $color-blue;
           border: 1px solid white;
           width: 245px;
           

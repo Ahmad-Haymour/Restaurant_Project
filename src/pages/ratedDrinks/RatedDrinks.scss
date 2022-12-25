@@ -3,8 +3,6 @@ $color-blue: #2C74B3;
 $color-dark-blue: #0A2647;
 
 #RatedDrinks {
-
-
     > .sort-container{
         background-color: $color-blue;
         display: flex;
@@ -16,8 +14,7 @@ $color-dark-blue: #0A2647;
             background-color: transparent;
             color: $color-dark-blue;
             line-height: 100px;
-            height: 100px;
-      
+            height: 100px;     
         }
         > .sort-by-rating{
             font-size: 2rem;
@@ -38,7 +35,6 @@ $color-dark-blue: #0A2647;
 
     > .rated-items{
         background-color: $color-dark-blue;
-        // style={{border:'2px solid', width:'300px', display:'flex'}}
         display: flex;
         flex-flow: row wrap;
         gap: 5rem;
@@ -49,10 +45,13 @@ $color-dark-blue: #0A2647;
             display: flex;
             gap: 3rem;
             width: 800px;
+            box-shadow: -4px 6px 20px white;
+            border-radius: 15px;
             
             > img{
                 width: 300px;
                 height: 300px;
+                border-radius: 15px;
             }
             > ul{
                 display: grid;
