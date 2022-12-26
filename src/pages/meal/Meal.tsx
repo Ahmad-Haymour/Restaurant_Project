@@ -29,28 +29,18 @@ export type DetailsProps = {
 export default function Meal() {
     let {land} = useParams<string>()
     let {meal_id} = useParams<string>()
-    let [singleMeal, setSingleMeal] = useState<Props | null>(null)
     let [mealDetails, setMealDetails] = useState<DetailsProps | null>(null)
-
-    useEffect(() => {
-        const url = "https://www.themealdb.com/api/json/v1/1/filter.php?a="+land;
-        axios.get(url).then((res)=>{
-            setSingleMeal(res.data.meals.filter((meal:Props)=>meal.idMeal === meal_id)[0])
-            console.log('Filter meals => ', res.data.meals.filter((meal:Props)=>meal.idMeal === meal_id)[0]);
-        })
-    }, [land, meal_id])
 
     useEffect(()=>{
       const url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i="+meal_id
       axios.get(url).then((res)=>{
-        console.log('Meal Details: ', res.data)
         setMealDetails(res.data.meals[0])
     })
     }, [meal_id])
 
   return (
     <div id='Meal'>
-        <img src={singleMeal?.strMealThumb} alt="Meal Thumb"/>
+        <img src={mealDetails?.strMealThumb} alt="Meal Thumb"/>
         <ul>
           <li><span className="white"> Area:&nbsp; </span> {land}</li>
           <li><span className="white">Meal:&nbsp; </span>{mealDetails?.strMeal}</li>

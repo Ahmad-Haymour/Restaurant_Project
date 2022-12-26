@@ -22,7 +22,6 @@ export default function MealsCategory({localStorageMeals, setLocalStorageMeals}:
     useEffect(() => {
         const url = "https://www.themealdb.com/api/json/v1/1/filter.php?a="+land;
         axios.get(url).then((res)=>{
-            console.log(res);
             setMeals(res.data.meals)
         })
     }, [land])
@@ -31,7 +30,6 @@ export default function MealsCategory({localStorageMeals, setLocalStorageMeals}:
 
     event.preventDefault()
     const target = event.target as HTMLElement
-    console.log('Meal Object: ', meal);
 
     setRatingStorage( (currentItems) =>{                    
       let ratedMealsCopy = [...currentItems]

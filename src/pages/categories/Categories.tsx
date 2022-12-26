@@ -25,7 +25,6 @@ export default function Categories({localStorageDrinks, setLocalStorageDrinks}:P
 
     axios.get(url).then((response)=>{
       setDrinks(response.data.drinks)
-      console.log('ALL FETCHED DRINKS=> ', response.data.drinks);
     })
   }, [category])
 
@@ -33,7 +32,6 @@ export default function Categories({localStorageDrinks, setLocalStorageDrinks}:P
 
     event.preventDefault()
     const target = event.target as HTMLElement
-    console.log('Drink Object: ', drink);
 
     setRatingStorage( (currentItems) =>{                    
       let ratedDrinksCopy = [...currentItems]

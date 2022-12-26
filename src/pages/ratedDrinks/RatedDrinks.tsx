@@ -20,7 +20,6 @@ export function RatedDrinks({localStorageDrinks}:Props[] | any) {
     let x = localStorage.getItem('rated-drinks')
     if (x != null){
       const LocalStorageItems = JSON.parse(x)
-      console.log(LocalStorageItems);
       setRatedDrinks(LocalStorageItems)
     } else return
   }, [localStorageDrinks])

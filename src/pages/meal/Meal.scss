@@ -1,60 +1,53 @@
-$color-blue: #2C74B3;
-$color-dark-blue: #0A2647;
+$color-blue: #2c74b3;
+$color-dark-blue: #0a2647;
 
-#Meal, #Drink {
-    display: flex;
-    flex-direction: row;
-    gap: 100px;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: $color-dark-blue;
-    padding: 5rem ;
-    min-height: 65vh;
-    border: 25px solid;
+#Meal,
+#Drink {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: $color-dark-blue;
+  padding: 5rem;
+  min-height: 65vh;
+  border: 25px solid;
 
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+    justify-content: center;
+  }
+  > img {
+    width: 500px;
+    height: 600px;
+    border-radius: 15px;
+    box-shadow: -4px 6px 20px white;
+  }
+  > ul {
+    list-style: none;
+    box-shadow: -2px 3px 10px white;
+    border-radius: 5px;
+    padding: 2rem 1rem;
+    > li {
+      font-size: 1.5rem;
+      color: $color-blue;
+      max-height: 200px;
+      overflow: auto;
+      color: purple;
 
-    @media screen and (max-width: 1200px ){
-        flex-direction: column;
-        justify-content: center;
+      > span.white {
+        color: $color-blue;
+        margin-right: 2rem;
+      }
     }
-    > img {
-        width: 500px;
-        height: 600px;
-        border-radius: 15px;
-        box-shadow: -4px 6px 20px white;
+    > li:nth-last-child(2) {
+      color: purple;
+      max-width: 750px;
     }
-
-    > ul{
-        list-style: none;
-        box-shadow: -4px 6px 20px white;
-        border-radius: 5px;
-        padding: 2rem 1rem;
-        > li{
-            font-size: 1.5rem;
-            color: $color-blue;
-            max-height: 200px;
-            overflow: auto;
-            color: purple;
-
-            > span.white{
-                color: $color-blue;
-                margin-right: 2rem;
-            }
-        }
-        > li:nth-last-child(2){
-            color: purple;
-            max-width: 750px;  
-        }
-        > li:nth-last-child(1){
-            // border: 1px solid white;
-            box-shadow: -2px 3px 10px white;
-
-            margin-top: 2rem;
-            padding: 1rem;
-        }
+    > li:nth-last-child(1) {
+      box-shadow: -1px 1px 10px white;
+      margin-top: 2rem;
+      padding: 1rem;
     }
-
-    > .text{
-
-    }
+  }
 }

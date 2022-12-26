@@ -34,9 +34,7 @@ export default function Drink() {
 
     useEffect(()=>{
       const url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i="+drink_id
-
       axios.get(url).then((res)=>{
-        console.log('Drink Details: ', res.data)
         setDrinkDetails(res.data.drinks[0])
     })
     }, [drink_id])

@@ -1,69 +1,67 @@
-
-$color-blue: #2C74B3;
-$color-dark-blue: #0A2647;
+$color-blue: #2c74b3;
+$color-dark-blue: #0a2647;
 
 #RatedDrinks {
-    > .sort-container{
-        background-color: $color-blue;
-        display: flex;
-        justify-content: space-around;
-        padding: 2rem;
+  > .sort-container {
+    background-color: $color-blue;
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
 
-        > h2 {
-            font-size: 2rem;
-            background-color: transparent;
-            color: $color-dark-blue;
-            line-height: 100px;
-            height: 100px;     
-        }
-        > .sort-by-rating{
-            font-size: 2rem;
-            background-color: transparent;
-            cursor: pointer;
-            color: whitesmoke;
-            border: none;
-            height: 100px;
-            line-height: 100px;
-            border: 1px solid white;
-            padding: 0 2rem;
-
-            &:hover{
-                color: $color-dark-blue;
-            }
-        }
+    > h2 {
+      font-size: 2rem;
+      background-color: transparent;
+      color: $color-dark-blue;
+      line-height: 100px;
+      height: 100px;
     }
+    > .sort-by-rating {
+      font-size: 2rem;
+      background-color: transparent;
+      cursor: pointer;
+      color: whitesmoke;
+      border: none;
+      height: 100px;
+      line-height: 100px;
+      border: 1px solid white;
+      padding: 0 2rem;
 
-    > .rated-items{
-        background-color: $color-dark-blue;
-        display: flex;
-        flex-flow: row wrap;
-        gap: 5rem;
-        justify-content: center;
-        margin-top: 5rem;
-
-        > .item{
-            display: flex;
-            gap: 3rem;
-            width: 800px;
-            box-shadow: -4px 6px 20px white;
-            border-radius: 15px;
-            
-            > img{
-                width: 300px;
-                height: 300px;
-                border-radius: 15px;
-            }
-            > ul{
-                display: grid;
-                place-items: start;
-                padding: 1rem .5rem;
-                > li{
-                    list-style: none;
-                    font-size: 2rem;
-                    color: $color-blue;
-
-                }
-            }
-        }
+      &:hover {
+        color: $color-dark-blue;
+      }
     }
+  }
+
+  > .rated-items {
+    background-color: $color-dark-blue;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5rem;
+    justify-content: center;
+    margin-top: 5rem;
+
+    > .item {
+      display: flex;
+      gap: 3rem;
+      width: 800px;
+      box-shadow: -4px 6px 20px white;
+      border-radius: 15px;
+
+      > img {
+        width: 300px;
+        height: 300px;
+        border-radius: 15px;
+      }
+      > ul {
+        display: grid;
+        place-items: start;
+        padding: 1rem 0.5rem;
+        > li {
+          list-style: none;
+          font-size: 2rem;
+          color: $color-blue;
+        }
+      }
+    }
+  }
 }

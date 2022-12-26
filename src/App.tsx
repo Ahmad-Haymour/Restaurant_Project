@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.scss';
+import './style/App.scss';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import axios from 'axios'
 
@@ -44,7 +44,6 @@ export function App() {
   useEffect( ()=> {
     const url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list";
     axios.get(url).then((response) =>{
-      console.log('All categories => ',response.data.drinks);
       setDrinks(response.data.drinks.map((drink: string) => drink))
     })
   }, [])
@@ -52,7 +51,6 @@ export function App() {
   useEffect(() => {
     const url = "https://www.themealdb.com/api/json/v1/1/list.php?a=list";
     axios.get(url).then(res=>{
-      console.log('Fetched Meals => ', res.data.meals);
       setMeals(res.data.meals.map((meal: string)=> meal))
     })
   }, [])

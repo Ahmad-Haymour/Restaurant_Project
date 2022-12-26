@@ -21,7 +21,6 @@ export function RatedMeals({localStorageMeals}:Props[] | any) {
     let x = localStorage.getItem('rated-meals')
     if (x != null){
       const LocalStorageItems = JSON.parse(x)
-      console.log(LocalStorageItems);
       setRatedMeals(LocalStorageItems)
     } else return
   }, [localStorageMeals])
