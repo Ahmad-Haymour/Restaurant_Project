@@ -21,8 +21,8 @@ export default function Footer() {
               <li>Blog</li>
             </ul>
             <ul>
-              <li>Terms</li>
-              <li>Privacy policy</li>
+              <li>Contact</li>
+              <li>Descriptions</li>
               <li>Imprint</li>
               <li>Terms</li>
               <li>Privacy policy</li>
@@ -33,28 +33,19 @@ export default function Footer() {
           <div className="right">
             <ul>
               <li>
-              <a href="#">
-                <img src={facebook} alt="Facebook icon" />
-              </a>
+                <a href="#"><img src={facebook} alt="Facebook icon" /></a>
               </li>
               <li>
-              <a href="#">
-                <img src={instagram} alt="Instagram icon" />
-              </a>
+                <a href="#"><img src={instagram} alt="Instagram icon" /></a>
               </li>
               <li>
-              <a href="#">
-                <img src={twitter} alt="Twitter icon" />
-              </a>
+                <a href="#"><img src={twitter} alt="Twitter icon" /></a>
               </li>
               <li>
-              <a href="#">
-                <img src={linkedin} alt="LinkedIn icon" />
-              </a>
+                <a href="#"><img src={linkedin} alt="LinkedIn icon" /></a>
               </li>
             </ul>
           </div>
-
     </div>
   )
 }
